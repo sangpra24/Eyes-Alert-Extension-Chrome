@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@500&display=swap" rel="stylesheet">
+  <title>ส่วนขยายแจ้งเตือนพักสายตา</title>
+  <style>
+  body {
+  width: 300px;
+  background-color: #ffffff;
+  padding: 20px;
+  font-family: 'Anuphan', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+    p, label, input, button, span {
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+
+    input, button {
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ddd;
+    }
+
+    label {
+      display: block;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h3>ส่วนขยายแจ้งเตือนพักสายตา</h3>
+  <p>20-20-20</p>
+  <label for="durationInput">ตั้งค่าเวลา (นาที): </label>
+  <input type="number" id="durationInput" value="20" min="1" max="60">
+  <button id="startTimer">เริ่ม</button>
+  <button id="stopTimer">หยุด</button>
+  <p>เวลา : <span id="countdown">20:00</span></p>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
