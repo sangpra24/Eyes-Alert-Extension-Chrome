@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th"> 
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@500&display=swap" rel="stylesheet">
+  <title>แจ้งเตือนพักสายตา</title>
+  <style>
+    body {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ffffff;
+      font-family: 'Anuphan', sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out; /* เพิ่มอนิเมชัน fadeIn */
+    }
+
+    h1 {
+      color: #333;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      margin: 10px 0;
+      border-radius: 50%; /* เพิ่มวงรีขอบรูป */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* เพิ่มเงารอบรูป */
+      animation: rotate 2s linear infinite; /* เพิ่มการหมุนอนิเมชัน */
+    }
+
+    #countdown {
+      font-size: 24px;
+      color: #007bff; /* เปลี่ยนสีนับถอยหลังเป็นสีน้ำเงิน */
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* เพิ่มกฎการเล่น fadeIn */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* เพิ่มกฎการหมุน rotate */
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ถึงเวลาพักสายตาแล้ว !!</h1>
+    <img src="relax.png" alt="Eye Icon">
+    <div id="countdown"></div>
+    <p>พักสายตาเป็นระยะ ระหว่างการใช้คอมพิวเตอร์ โดยใช้กฏ 20-20-20 
+      คือทุกๆ 20 นาทีให้พักสายตา 20 วินาทีและมองไกลๆ ไปยังสิ่งที่อยู่ไกลกว่า 20 ฟุต (หรือ 6 เมตร)</p>
+  </div>
+</body>
+</html>

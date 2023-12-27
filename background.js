@@ -23,11 +23,12 @@ function startCountdown() {
         if (data.timerRunning) {
           if (countdownTime > 0) {
             countdownTime--;
+            chrome.storage.local.set({ countdownTime: countdownTime });
           } else {
             clearInterval(timerInterval);
             showNotification();
+            showPopupAlert();
           }
-          chrome.storage.local.set({ countdownTime: countdownTime });
         } else {
           clearInterval(timerInterval);
         }
@@ -39,8 +40,33 @@ function startCountdown() {
 function showNotification() {
   chrome.notifications.create({
     type: 'basic',
-    iconUrl: 'icon128.png', // Adjust the path as needed
+    iconUrl: 'icon128.png',
     title: 'Rest Your Eyes',
     message: 'ถึงเวลาพักสายตาแล้ว !!'
   });
 }
+
+function showPopupAlert() {
+  const popupWidth = 500;
+  const popupHeight = 400;
+
+  chrome.windows.getCurrent(function (currentWindow) {
+    const left = Math.round(currentWindow.left + (currentWindow.width - popupWidth) / 2);
+    const top = Math.round(currentWindow.top + (currentWindow.height - popupHeight) / 2);
+
+    chrome.windows.create({
+      type: "popup",
+      url: "alertwindow.html",
+      width: popupWidth,
+      height: popupHeight,
+      left: left,
+      top: top
+    }, function(window) {
+      // Set a timeout to close the popup window after 20 seconds
+      setTimeout(function() {
+        chrome.windows.remove(window.id);
+      }, 20000); // 20 seconds
+    });
+  });
+}
+
